@@ -13,6 +13,8 @@ app.set("view engine","pug");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "static")));
 app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use(localsMiddleware);
@@ -24,3 +26,4 @@ app.use("/users", userRouter);
 const handleListening = () => console.log(`✅ Server running : http://localhost:${PORT}`);
 
 app.listen(PORT, handleListening);
+

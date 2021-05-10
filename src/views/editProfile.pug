@@ -1,1 +1,16 @@
-h1 edit Profile
+extends layouts/main
+
+block content
+    .form-container 
+        form(action="/users/edit-profile", method="POST", enctype="application/json")
+            .fileUpload 
+                label(for="picture") Picture 
+                input(type="file", id="picture", name="picture", accept="image/*")
+            input(type="text", placeholder="Name", name="name")
+            input(type="text", placeholder="Github Id", name="githubId")
+            input(type="email", placeholder="Email", name="email")
+            input(type="text", placeholder="School", name="school")
+            textarea(name="tech", placeholder="Add your Tech")
+            textarea(name="career", placeholder="Add your Career")
+            textarea(name="introduction", placeholder="Self introduction")
+            input(type="submit", value="Update Profile")
