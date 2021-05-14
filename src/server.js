@@ -5,7 +5,8 @@ import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import { localsMiddleware } from "./middlewares";
 
-const PORT = 5500;
+
+
 const app = express();
 
 
@@ -23,7 +24,6 @@ app.use("/users", userRouter);
 
 
 
-const handleListening = () => console.log(`✅ Server running : http://localhost:${PORT}`);
 
-app.listen(PORT, handleListening);
 
+export default app;

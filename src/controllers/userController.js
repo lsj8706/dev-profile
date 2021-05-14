@@ -1,4 +1,5 @@
 import axios from "axios";
+import User from "../models/User";
 
 const getQuote = async (req,res) =>{
     const url = "http://quotes.stormconsultancy.co.uk/random.json";
