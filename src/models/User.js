@@ -7,12 +7,14 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true
     },
     avatarUrl: String,
     githubId: {
         type: Number,
-        required: "GitHub id is required"     
+        required: "GitHub id is required",
+        unique: true     
     },
     githubName: {
         type: String,
@@ -38,6 +40,13 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: "#"
     }
+});
+
+UserSchema.static("formatTech", function(tech){
+    return tech.split(",");
+});
+UserSchema.static("formatCareer",function(career){
+    return career.split(",");
 });
 
 const User = mongoose.model("User", UserSchema);

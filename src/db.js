@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/dev-profile",{
+mongoose.connect(process.env.DB_URL,{
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
     }
 );
 
