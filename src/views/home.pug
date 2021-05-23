@@ -15,3 +15,14 @@ block content
                 a(href="/login") Login
         else 
             a(href=`/users/${loggedUser._id}`) My profile
+            
+        .gotoTrend(style="border: 1px solid blue;")
+            p(style='color: orange;') Trending Repositories: 
+            br
+            a(href=Url0, style={color:'grey'}) 
+                p=name0+": "+description0+" - "+stars0+" stars"
+            a(href=Url1, style={color:'grey'}) 
+                p=name1+": "+description1+" - "+stars1+" stars"
+            a(href=Url2, style={color:'grey'}) 
+                p=name2+": "+description2+" - "+stars2+" stars"
+
