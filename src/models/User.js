@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     },
     tech: [{ type: String, trim: true }],
     career: [{ type: String, trim: true }],
-    introduction: String,
+    introduction: { type: String, maxLength: 500},
     createdAt: {
         type: Date,
         default: Date.now

@@ -1,16 +1,24 @@
 extends layouts/main
 
 block content
-    .form-container 
-        form(action="/users/edit-profile", method="POST", enctype="application/json")
+    .form-container
+        form(action="/users/edit-profile", method="POST", enctype="multipart/form-data")
+            img(src=`/${loggedUser.avatarUrl}`, width="100", height="120") 
             .fileUpload 
-                label(for="picture") Picture 
-                input(type="file", id="picture", name="picture", accept="image/*")
-            input(type="text", placeholder="Name", name="name")
-            input(type="text", placeholder="Github Id", name="githubId")
-            input(type="email", placeholder="Email", name="email")
-            input(type="text", placeholder="School", name="school")
-            textarea(name="tech", placeholder="Add your Tech")
-            textarea(name="career", placeholder="Add your Career")
-            textarea(name="introduction", placeholder="Self introduction")
+                label(for="photo") Photo 
+                input(type="file", id="photo", name="photo", accept="image/*")
+            label(for="name") Name
+            input(type="text", id="name",placeholder="Name", name="name", value=user.name)
+            label(for="email") Email
+            input(type="email", id="email", placeholder="Email", name="email", value=user.email)
+            label(for="school") School
+            input(type="text", id="school",placeholder="School", name="school", value=user.school)
+            label(for="blogUrl") Blog Url
+            input(type="text", id="blogUrl", placeholder="Blog url", name="blogUrl", value=user.blogUrl)
+            label(for="tech") Enter your tech skills seperated by comma. ex)react,node
+            textarea(name="tech", id="tech", placeholder="Add Tech you can use")=user.tech
+            label(for="career") Enter your careers seperated by comma. ex)A company, B competition
+            textarea(name="career", id="career", placeholder="Add your Career")=user.career
+            label(for="introduction") Self introduction
+            textarea(name="introduction", id="introduction", placeholder="Self introduction", maxlength=200)=user.introduction
             input(type="submit", value="Update Profile")

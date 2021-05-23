@@ -12,9 +12,10 @@ globalRouter.get("/join", onlyPublic, getJoin);
 globalRouter.get("/login", onlyPublic, getLogin);
 globalRouter.get("/logout", onlyPrivate, logout);
 
-globalRouter.get("/auth/github", githubLogin);
+globalRouter.get("/auth/github", onlyPublic, githubLogin);
 globalRouter.get(
     "/auth/github/callback",
+    onlyPublic,
     passport.authenticate("github",{failureRedirect: "/login"}),
     postGithubLogin
 );

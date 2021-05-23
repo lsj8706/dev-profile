@@ -23,11 +23,48 @@ export const getUserDetail = async (req,res) =>{
     res.render("userDetail",{pagetTitle:"User Detail", quote:quote.quote, author:quote.author})
 }
 
-export const getEditProfile = (req,res)=> res.render("editProfile",{pageTitle:"Edit Profile"});
+export const getEditProfile = async (req,res)=> {
+    const{
+        user:{_id:id}
+    } = req;
+    try{
+        const user = await User.findById(id);
+        if(user.id !== id){
+            throw Error();
+        } else{        
+            res.render("editProfile",{pageTitle:"Edit Profile", user});
+        }
+    }catch(error){
+        console.log(error);
+    }
+};
 
-export const postEditProfile = (req,res) =>{
-    console.log(req.body);
-    res.redirect("/users/edit-profile");
+export const postEditProfile = async (req,res) =>{
+    const {
+        user:{_id:id},
+        body: {name, email, school, blogUrl, tech, career, introduction},
+        file
+    } = req;
+    try{
+        const updatedUser = await User.findByIdAndUpdate(id, {
+            avatarUrl: file ? file.path : req.session.passport.user.avatarUrl,
+            name,
+            email,
+            school,
+            blogUrl,
+            tech: User.formatTech(tech),
+            career: User.formatCareer(career),
+            introduction
+        },
+        {
+            new: true
+        });
+        req.session.passport.user = updatedUser;
+        res.redirect("/users/edit-profile");
+    }catch(error){
+        console.log(error);
+        res.redirect("/");
+    }
 };
 
 
@@ -49,7 +86,7 @@ export const githubLoginCallback = async (_, __, profile, done) =>{
     const {_json: {id:githubId, login:githubName, avatar_url:avatarUrl, name, email}} = profile;
 
     try{
-        const user = await User.findOne({email});
+        const user = await User.findOne({githubId});
         if(user){
             user.githubId = githubId,
             user.githubName = githubName

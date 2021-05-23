@@ -1,3 +1,5 @@
+import multer from "multer";
+
 export const localsMiddleware = (req,res,next) => {
     res.locals.siteName = "Dev Profile";
     res.locals.loggedUser = req.user || null;
@@ -20,3 +22,10 @@ export const onlyPrivate = (req, res, next) => {
         res.redirect("/");
     }
 };
+
+export const uploadFiles = multer({
+    dest:"uploads/",
+    limits: {
+        fileSize: 3000000
+    }
+});

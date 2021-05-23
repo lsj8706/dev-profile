@@ -7,7 +7,11 @@ block content
             h1 -Developer Profile-
             h2=quote 
             h3=author
-        .home-link 
-            a(href="/join") Join
-            |#{' '}
-            a(href="/login") Login
+        
+        if !loggedUser
+            .home-link
+                a(href="/join") Join
+                |#{' '}
+                a(href="/login") Login
+        else 
+            a(href=`/users/${loggedUser._id}`) My profile

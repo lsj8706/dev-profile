@@ -32,6 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(localsMiddleware);
+app.use("/uploads", express.static("uploads"));
 app.use("/", globalRouter);
 app.use("/users", userRouter);
 
