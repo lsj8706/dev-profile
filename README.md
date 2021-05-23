@@ -11,6 +11,7 @@ KHU-Hub repo: [khuhub.khu.ac.kr/2018102216/dev-profile](https://khuhub.khu.ac.kr
 - [x] random quotes **_for developers_** to motivate you :sparkles:
 - [ ] the amount of commits you've done on [GitHub](https://github.com/) at a glance
 - [ ] your most-contributed project on GitHub
+- [x] today's trending repositories on GitHub
       <br>
 
 ### Additional Features
