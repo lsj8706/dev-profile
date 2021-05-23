@@ -1,6 +1,20 @@
 import axios from "axios";
 import passport from "passport";
 import User from "../models/User";
+import fetch from "node-fetch";
+
+const getContributions= async(token, username)=> {
+  const headers = {
+    'Authorization': `bearer ${token}`,
+  }
+  const body = {
+    "query": `query {user(login: "${username}") {contributionsCollection {contributionCalendar {totalContributions}}}}`
+  }
+  const response = await fetch('https://api.github.com/graphql', { method: 'POST', body: JSON.stringify(body), headers: headers })
+  const data = response.json();
+  return data
+}
+
 
 const getQuote = async (req, res) => {
   const url = "http://quotes.stormconsultancy.co.uk/random.json";
@@ -18,6 +32,7 @@ const gitTrend = async (req, res) => {
   const trendData = await axios.get(url).then(function (response) {
     return response.data;
   });
+  //console.log(trendData.slice(0, 2));
   const name0 = trendData[0].name;
   const description0 = trendData[0].description;
   const Url0 = trendData[0].url;
@@ -52,6 +67,8 @@ const gitTrend = async (req, res) => {
 export const handleHome = async (req, res) => {
   const quote = await getQuote();
   const trend = await gitTrend();
+  const data = await getContributions(process.env.GH_TOKEN,'lsj8706');
+  console.log(data.data.user.contributionsCollection.contributionCalendar.totalContributions);
   res.render("home", {
     pageTitle: "Home",
     quote: quote.quote,
@@ -79,6 +96,7 @@ export const getUserDetail = async (req, res) => {
     author: quote.author,
   });
 };
+
 
 export const getEditProfile = async (req,res)=> {
     const{
