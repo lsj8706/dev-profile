@@ -47,8 +47,6 @@ const gitTrend = async (req, res) => {
   };
 };
 
-
-
 export const handleHome = async (req, res) => {
   const quote = await getQuote();
   const trend = await gitTrend();
@@ -73,55 +71,64 @@ export const handleHome = async (req, res) => {
 
 export const getUserDetail = async (req, res) => {
   const quote = await getQuote();
+  const id = req.params.id;
+  const user = await User.findById(id);
+  console.log(user.tech);
+
   res.render("userDetail", {
     pagetTitle: "User Detail",
     quote: quote.quote,
     author: quote.author,
+    user,
   });
 };
 
-export const getEditProfile = async (req,res)=> {
-    const{
-        user:{_id:id}
-    } = req;
-    try{
-        const user = await User.findById(id);
-        if(user.id !== id){
-            throw Error();
-        } else{        
-            res.render("editProfile",{pageTitle:"Edit Profile", user});
-        }
-    }catch(error){
-        console.log(error);
+export const getEditProfile = async (req, res) => {
+  const {
+    user: { _id: id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    if (user.id !== id) {
+      throw Error();
+    } else {
+      res.render("editProfile", { pageTitle: "Edit Profile", user });
     }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const postEditProfile = async (req,res) =>{
-    const {
-        user:{_id:id},
-        body: {name, email, school, blogUrl, tech, career, introduction},
-        file
-    } = req;
-    try{
-        const updatedUser = await User.findByIdAndUpdate(id, {
-            avatarUrl: file ? file.path : req.session.passport.user.avatarUrl,
-            name,
-            email,
-            school,
-            blogUrl,
-            tech: User.formatTech(tech),
-            career: User.formatCareer(career),
-            introduction
-        },
-        {
-            new: true
-        });
-        req.session.passport.user = updatedUser;
-        res.redirect("/users/edit-profile");
-    }catch(error){
-        console.log(error);
-        res.redirect("/");
-    }
+export const postEditProfile = async (req, res) => {
+  const {
+    user: { _id: id },
+    body: { name, email, school, blogUrl, tech, career, introduction },
+    file,
+  } = req;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      {
+        avatarUrl: file ? file.path : req.session.passport.user.avatarUrl,
+        name,
+        email,
+        school,
+        blogUrl,
+        tech: User.formatTech(tech),
+        career: User.formatCareer(career),
+        introduction,
+      },
+      {
+        new: true,
+      }
+    );
+    req.session.passport.user = updatedUser;
+    //console.log(updatedUser);
+    res.redirect("/users/edit-profile");
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
 };
 
 export const getJoin = (req, res) => {
@@ -151,26 +158,25 @@ export const githubLoginCallback = async (_, __, profile, done) => {
     },
   } = profile;
 
-    try{
-        const user = await User.findOne({githubId});
-        if(user){
-            user.githubId = githubId,
-            user.githubName = githubName
-            await user.save();
-            return done(null, user);
-        }else{
-            const newUser = await User.create({
-                githubId,
-                githubName,
-                avatarUrl,
-                name,
-                email
-            });
-            return done(null, newUser);
-        }
-    }catch(error){
-        return done(error);
+  try {
+    const user = await User.findOne({ githubId });
+    if (user) {
+      (user.githubId = githubId), (user.githubName = githubName);
+      await user.save();
+      return done(null, user);
+    } else {
+      const newUser = await User.create({
+        githubId,
+        githubName,
+        avatarUrl,
+        name,
+        email,
+      });
+      return done(null, newUser);
     }
+  } catch (error) {
+    return done(error);
+  }
 };
 
 export const postGithubLogin = (req, res) => {

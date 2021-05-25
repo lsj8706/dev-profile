@@ -37,8 +37,14 @@ npm run dev:server
 ```
 
 <br>
+
 ### API reference
+
 [Programming Quotes API](quotes.stormconsultancy.co.uk/random.json)
 <br>
+
+[Trending-GitHub API](https://docs.trending-github.com/)
+
 ### License
+
 [MIT](https://choosealicense.com/licenses/mit/)
