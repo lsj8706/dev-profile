@@ -11,23 +11,41 @@ block content
             img(src="#")
             .user-profile__link 
                 a(href="#") Github
+                |#{'  '}
                 a(href="#") Blog
         .user-profile__column
             .user-profile__info
-                h3 NAME 
-                h3 GITHUB NICKNAME 
-                h3 EMAIL 
-                h3 SCHOOL
-                h3 TECH 
-                h3 CAREER 
-                h3 SELF-INTRODUCTION
+                h3(style="display: inline;") NAME:  
+                h4(style="display: inline;")=user.name  
+                br              
+                h3(style="display: inline;") GITHUB NICKNAME: 
+                h4(style="display: inline;")=user.githubName  
+                br
+                h3(style="display: inline;") EMAIL: 
+                h4(style="display: inline;")=user.email 
+                br      
+                h3(style="display: inline;") SCHOOL:   
+                h4(style="display: inline;")=user.school          
+                h3 TECH:
+                ul
+                    each tech in user.tech 
+                        li=tech
+                h3 CAREER:
+                ul
+                    each career in user.career
+                        li=career
+                h3(style="display: inline;") SELF-INTRODUCTION:        
+                h4(style="display: inline;")=user.introduction
     hr
     .user-status
         .user-status__contributions
-            img(src="http://ghchart.rshah.org/lsj8706" alt="Name Your Github chart")
+            img(src=`http://ghchart.rshah.org/${user.githubName}` alt="Name Your Github chart")
         .user-status__character
             h3 Your step | commit numbers 
             img(src="https://preview.free3d.com/img/2019/12/2269306250288170045/1oe8ymrc-900.jpg" alt="character" style="height:200px; width:250px;")
     .user-repositories
         .user-repo
             h3 REPO 1
+            
+
+            
