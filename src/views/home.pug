@@ -4,25 +4,24 @@ block content
     .home
         .home-title 
             h2 Develop your value 
-            h1 -Developer Profile-
+            h1 Developer Profile
+        .home-quote
             h2=quote 
             h3=author
-        
-        if !loggedUser
-            .home-link
+        .home-link
+            if !loggedUser
                 a(href="/join") Join
-                |#{' '}
                 a(href="/login") Login
-        else 
-            a(href=`/users/${loggedUser._id}`) My profile
+            else 
+                a(href=`/users/${loggedUser._id}`) My profile
             
-        .gotoTrend(style="border: 1px solid blue;") 
-            p(style='color: orange;') Trending Repositories: 
-            br
-            a(href=Url0, style={color:'grey'}) 
-                p=name0+": "+description0+" - "+stars0+" stars"
-            a(href=Url1, style={color:'grey'}) 
-                p=name1+": "+description1+" - "+stars1+" stars"
-            a(href=Url2, style={color:'grey'}) 
-                p=name2+": "+description2+" - "+stars2+" stars"
+        .gotoTrend
+            h2 Today's Trending Repositories
+            .gotoTrend-repos
+                a(href=Url0) 
+                    p=name0+": "+description0+" - "+stars0+" stars"
+                a(href=Url1) 
+                    p=name1+": "+description1+" - "+stars1+" stars"
+                a(href=Url2) 
+                    p=name2+": "+description2+" - "+stars2+" stars"
 

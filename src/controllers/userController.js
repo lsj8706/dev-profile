@@ -70,18 +70,22 @@ export const handleHome = async (req, res) => {
 };
 
 export const getUserDetail = async (req, res) => {
-  const quote = await getQuote();
-  const id = req.params.id;
-  const user = await User.findById(id);
-  console.log(user.tech);
-
-  res.render("userDetail", {
-    pagetTitle: "User Detail",
-    quote: quote.quote,
-    author: quote.author,
-    user,
-  });
+  try{
+    const id = req.params.id;
+    const quote = await getQuote();
+    const user = await User.findById(id);
+    res.render("userDetail", {
+      pagetTitle: "User Detail",
+      quote: quote.quote,
+      author: quote.author,
+      user,
+    });
+  } catch(error){
+    console.log(error);
+    res.redirect("/");
+  }
 };
+
 
 export const getEditProfile = async (req, res) => {
   const {
@@ -153,6 +157,7 @@ export const githubLoginCallback = async (_, __, profile, done) => {
       id: githubId,
       login: githubName,
       avatar_url: avatarUrl,
+      html_url: githubUrl,
       name,
       email,
     },
@@ -169,6 +174,7 @@ export const githubLoginCallback = async (_, __, profile, done) => {
         githubId,
         githubName,
         avatarUrl,
+        githubUrl,
         name,
         email,
       });

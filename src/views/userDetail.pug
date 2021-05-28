@@ -1,18 +1,16 @@
 extends layouts/main
 
 block content
-    h1 User Detail
     .user-quote
         h2=quote 
         h3=author
     hr
     .user-profile 
         .user-profile__column 
-            img(src="#")
+            img(src=`/${user.avatarUrl}`)
             .user-profile__link 
-                a(href="#") Github
-                |#{'  '}
-                a(href="#") Blog
+                a(href=user.githubUrl target="_blank") Github
+                a(href=`//${user.blogUrl}` target="_blank") Blog
         .user-profile__column
             .user-profile__info
                 h3(style="display: inline;") NAME:  

@@ -118,5 +118,5 @@ dist
 
 package-lock.json
 /uploads
-static
+/assets
 build

@@ -1,0 +1,25 @@
+header {
+  padding: 10px;
+  margin-bottom: 10px;
+  .header__wrapper {
+    padding: 5px 0px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-end;
+
+    .header__column {
+      ul {
+        display: flex;
+        color: $blue;
+        font-weight: 700;
+        font-size: 20px;
+        text-transform: uppercase;
+        li:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
