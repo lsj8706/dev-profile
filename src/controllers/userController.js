@@ -1,6 +1,7 @@
 import axios from "axios";
 import passport from "passport";
 import User from "../models/User";
+import fetch from "node-fetch";
 
 const getQuote = async (req, res) => {
   const url = "http://quotes.stormconsultancy.co.uk/random.json";
@@ -74,11 +75,18 @@ export const getUserDetail = async (req, res) => {
     const id = req.params.id;
     const quote = await getQuote();
     const user = await User.findById(id);
+    const repo = await getRepos();
+    const totalCon = await getContributions();
     res.render("userDetail", {
       pagetTitle: "User Detail",
       quote: quote.quote,
       author: quote.author,
       user,
+      fitstRepoName: repo.fitstRepoName,
+      firstRepoUrl: repo.firstRepoUrl,
+      secondRepoName: repo.secondRepoName,
+      secondRepoUrl: repo.secondRepoUrl,
+      totalContributions: totalCon,
     });
   } catch(error){
     console.log(error);
@@ -193,4 +201,37 @@ export const postGithubLogin = (req, res) => {
 export const logout = (req, res) => {
   req.logout();
   res.redirect("/");
+};
+
+const getRepos = async(req,res) =>{
+  const url = "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
+  const latelyRepos = await axios.get(url).then(function(response){
+      return response.data;
+  });
+  const fitstRepoName = latelyRepos[0].name;
+  const secondRepoName = latelyRepos[1].name;
+  const firstRepoUrl = latelyRepos[0].html_url;
+  const secondRepoUrl = latelyRepos[1].html_url;
+
+  return {
+    fitstRepoName,
+    firstRepoUrl,
+    secondRepoName,
+    secondRepoUrl,
+  };
+};
+
+const getContributions = async(req, res) =>{
+  const token = process.env.GH_SECRET_SH;
+  const username = 'lsj8706'
+  const headers = {
+      'Authorization': `bearer ${token}`,
+  };
+  const body = {
+    "query": `query {user(login: "${username}") {contributionsCollection {contributionCalendar {totalContributions}}}}`
+  };
+  const response = await fetch('https://api.github.com/graphql', { method: "POST", body: JSON.stringify(body), headers: headers });
+  const totalContributions = await response.json();
+  const total = totalContributions.data.user.contributionsCollection.contributionCalendar.totalContributions;
+  return total;
 };

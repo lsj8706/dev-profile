@@ -37,6 +37,9 @@ block content
     hr
     .user-status
         .user-status__contributions
+            img(src="http://ghchart.rshah.org/lsj8706" alt="Name Your Github chart")
+            a(href=Url0, style={color:'grey'})
+               p=totalContributions
             img(src=`http://ghchart.rshah.org/${user.githubName}` alt="Name Your Github chart")
         .user-status__character
             h3 Your step | commit numbers 
@@ -44,6 +47,9 @@ block content
     .user-repositories
         .user-repo
             h3 REPO 1
-            
-
-            
+            a(href=Url0, style={color:'grey'})
+               p=fitstRepoName+": "+firstRepoUrl
+            br
+            h3 REPO 2
+            a(href=Url0, style={color:'grey'})
+               p=secondRepoName+": "+secondRepoUrl
