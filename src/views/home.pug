@@ -8,6 +8,9 @@ block content
         .home-quote
             h2=quote 
             h3=author
+        .home-search 
+            form.home-search__form
+                input(type="text" id="jsInput" placeholder="Google 검색")
         .home-link
             if !loggedUser
                 a(href="/join") Join
@@ -15,13 +18,10 @@ block content
             else 
                 a(href=`/users/${loggedUser._id}`) My profile
             
-        .gotoTrend
+        .gotoTrend#jsGotoTrend
             h2 Today's Trending Repositories
-            .gotoTrend-repos
-                a(href=Url0) 
-                    p=name0+": "+description0+" - "+stars0+" stars"
-                a(href=Url1) 
-                    p=name1+": "+description1+" - "+stars1+" stars"
-                a(href=Url2) 
-                    p=name2+": "+description2+" - "+stars2+" stars"
-
+            .gotoTrend-repos#jsGotoTrendRepos
+                span#jsIndicator Waiting....
+block scripts 
+    script(src="/static/js/getTrend.js")
+    script(src="/static/js/search.js") 

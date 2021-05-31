@@ -13,60 +13,13 @@ const getQuote = async (req, res) => {
   return { quote, author };
 };
 
-const gitTrend = async (req, res) => {
-  const url =
-    "https://api.trending-github.com/github/repositories?period=daily";
-  const trendData = await axios.get(url).then(function (response) {
-    return response.data;
-  });
-  const name0 = trendData[0].name;
-  const description0 = trendData[0].description;
-  const Url0 = trendData[0].url;
-  const stars0 = trendData[0].stars;
-  const name1 = trendData[1].name;
-  const description1 = trendData[1].description;
-  const Url1 = trendData[1].url;
-  const stars1 = trendData[1].stars;
-  const name2 = trendData[2].name;
-  const description2 = trendData[2].description;
-  const Url2 = trendData[2].url;
-  const stars2 = trendData[2].stars;
-
-  return {
-    name0,
-    description0,
-    Url0,
-    stars0,
-    name1,
-    description1,
-    Url1,
-    stars1,
-    name2,
-    description2,
-    Url2,
-    stars2,
-  };
-};
 
 export const handleHome = async (req, res) => {
   const quote = await getQuote();
-  const trend = await gitTrend();
   res.render("home", {
     pageTitle: "Home",
     quote: quote.quote,
-    author: quote.author,
-    name0: trend.name0,
-    description0: trend.description0,
-    Url0: trend.Url0,
-    stars0: trend.stars0,
-    name1: trend.name1,
-    description1: trend.description1,
-    Url1: trend.Url1,
-    stars1: trend.stars1,
-    name2: trend.name2,
-    description2: trend.description2,
-    Url2: trend.Url2,
-    stars2: trend.stars2,
+    author: quote.author
   });
 };
 
@@ -76,7 +29,7 @@ export const getUserDetail = async (req, res) => {
     const quote = await getQuote();
     const user = await User.findById(id);
     const repo = await getRepos();
-    const totalCon = await getContributions();
+    const totalCon = await getContributions(user.githubName);
     res.render("userDetail", {
       pagetTitle: "User Detail",
       quote: quote.quote,
@@ -203,7 +156,7 @@ export const logout = (req, res) => {
   res.redirect("/");
 };
 
-const getRepos = async(req,res) =>{
+const getRepos = async() =>{
   const url = "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
   const latelyRepos = await axios.get(url).then(function(response){
       return response.data;
@@ -221,9 +174,8 @@ const getRepos = async(req,res) =>{
   };
 };
 
-const getContributions = async(req, res) =>{
+const getContributions = async(username) =>{
   const token = process.env.GH_SECRET_SH;
-  const username = 'lsj8706'
   const headers = {
       'Authorization': `bearer ${token}`,
   };

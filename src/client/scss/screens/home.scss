@@ -81,6 +81,13 @@
         font-size: 18px;
         margin: 10px 0px;
       }
+      .repoName {
+        font-weight: 600;
+      }
+      .repoStar {
+        font-weight: 600;
+        color: $star;
+      }
     }
   }
 }
