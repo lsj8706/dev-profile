@@ -1,5 +1,5 @@
 // Config
-@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&family=Roboto:wght@100;900&family=Vollkorn:ital@1&display=swap");
 @import "./config/_variables.scss";
 @import "./config/_reset.scss";
 
@@ -8,6 +8,8 @@
 @import "./components/footer.scss";
 // Screens
 @import "./screens/home.scss";
+@import "./screens/editProfile.scss";
+@import "./screens/userDetail.scss";
 
 // Defaults
 

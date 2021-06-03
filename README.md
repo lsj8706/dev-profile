@@ -7,9 +7,9 @@ KHU-Hub repo: [khuhub.khu.ac.kr/2018102216/dev-profile](https://khuhub.khu.ac.kr
 
 ## Main Features
 
-- [ ] your basic profile
+- [x] your basic profile
 - [x] random quotes **_for developers_** to motivate you :sparkles:
-- [ ] the amount of commits you've done on [GitHub](https://github.com/) at a glance
+- [x] the amount of commits you've done on [GitHub](https://github.com/) at a glance
 - [ ] your most-contributed project on GitHub
 - [x] today's trending repositories on GitHub
       <br>
@@ -36,14 +36,22 @@ To run server,
 npm run dev:server
 ```
 
+```bash
+npm run dev:assets
+```
+
 <br>
 
 ### API reference
 
 [Programming Quotes API](quotes.stormconsultancy.co.uk/random.json)
-<br>
 
 [Trending-GitHub API](https://docs.trending-github.com/)
+
+[GitHub Contributuions API](https://api.github.com/graphql/)
+
+<br>
+\\<!--[GitHub Repositories API](https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2")-->
 
 ### License
 
