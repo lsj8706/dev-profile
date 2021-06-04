@@ -4,36 +4,41 @@ block content
     .user-quote
         h2=quote 
         h3=author
+
     hr
     .user-profile 
         .user-profile__column 
             img(src=`/${user.avatarUrl}`)
             .user-profile__link 
-                a(href=user.githubUrl target="_blank") Github
+                a(href=user.githubUrl target="_blank") Github 
                 a(href=`//${user.blogUrl}` target="_blank") Blog
         .user-profile__column
             .user-profile__info
-                h3(style="display: inline;") NAME:  
-                h4(style="display: inline;")=user.name  
-                br              
-                h3(style="display: inline;") GITHUB NICKNAME: 
-                h4(style="display: inline;")=user.githubName  
-                br
-                h3(style="display: inline;") EMAIL: 
-                h4(style="display: inline;")=user.email 
-                br      
-                h3(style="display: inline;") SCHOOL:   
-                h4(style="display: inline;")=user.school          
-                h3 TECH:
-                ul
-                    each tech in user.tech 
-                        li=tech
-                h3 CAREER:
-                ul
-                    each career in user.career
-                        li=career
-                h3(style="display: inline;") SELF-INTRODUCTION:        
-                h4(style="display: inline;")=user.introduction
+                .user-profile__name
+                    h3 NAME:  
+                    h4=user.name  
+                .user-profile__github              
+                    h3 GITHUB NICKNAME: 
+                    h4=user.githubName  
+                .user-profile__email
+                    h3 EMAIL: 
+                    h4=user.email 
+                .user-profile__school      
+                    h3 SCHOOL:   
+                    h4=user.school
+                .user-profile__tech
+                    h3 TECH:
+                    ul
+                        each tech in user.tech 
+                            li=tech
+                .user-profile__career
+                    h3 CAREER:
+                    ul
+                        each career in user.career
+                            li=career
+                .user-profile__introduction            
+                    h3 SELF-INTRODUCTION:        
+                    h4=user.introduction
     hr
     .user-status
         .user-status__contributions

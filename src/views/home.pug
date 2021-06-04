@@ -3,7 +3,7 @@ extends layouts/main
 block content
     .home
         .home-title 
-            h2 Develop your value 
+            h2 "Develop your value" 
             h1 Developer Profile
         .home-quote
             h2=quote 
@@ -19,7 +19,7 @@ block content
                 a(href=`/users/${loggedUser._id}`) My profile
             
         .gotoTrend#jsGotoTrend
-            h2 Today's Trending Repositories
+            h2 Today's Trending Repositories:
             .gotoTrend-repos#jsGotoTrendRepos
                 span#jsIndicator Waiting....
 block scripts 

@@ -1,0 +1,9 @@
+scss -> screens/assets둘다
+사진 크기 설정하기
+
+youtube와 구글에 scss나 sass 검색마니하기
+
+pug 파일 안에 이미 있는 css 다 지워버리기
+css하다보면 pug파일 많이 수정해야할거임
+
+아직 세진님께 불러와지네요..? 최근 repos

@@ -1,0 +1,39 @@
+.user-quote {
+  margin-top: 20px;
+  h2 {
+    font-size: 30px;
+    font-family: "Vollkorn", serif;
+    margin: 15px 0px;
+  }
+  h3 {
+    display: flex;
+    margin-right: 100px;
+    flex-direction: row-reverse;
+    font-size: 20px;
+    opacity: 0.5;
+    font-family: "Vollkorn", serif;
+  }
+}
+label {
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px;
+}
+.user-profile {
+  .user-profile__column {
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+    .user-profile__link {
+      display: flex;
+      font-family: "Raleway", sans-serif;
+      flex-wrap: wrap;
+      font-weight: bold;
+      width: 5px;
+      color: rgb(92, 92, 221);
+    }
+  }
+}

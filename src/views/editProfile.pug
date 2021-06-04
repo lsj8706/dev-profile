@@ -5,20 +5,28 @@ block content
         form(action="/users/edit-profile", method="POST", enctype="multipart/form-data")
             img(src=`/${loggedUser.avatarUrl}`)
             .fileUpload 
-                label(for="photo") Photo 
                 input(type="file", id="photo", name="photo", accept="image/*")
-            label(for="name") Name
-            input(type="text", id="name",placeholder="Name", name="name", value=user.name)
-            label(for="email") Email
-            input(type="email", id="email", placeholder="Email", name="email", value=user.email)
-            label(for="school") School
-            input(type="text", id="school",placeholder="School", name="school", value=user.school)
-            label(for="blogUrl") Blog Url
-            input(type="text", id="blogUrl", placeholder="Blog url", name="blogUrl", value=user.blogUrl)
-            label(for="tech") Enter your tech skills seperated by comma. ex)react,node
-            textarea(name="tech", id="tech", placeholder="Add Tech you can use")=user.tech
-            label(for="career") Enter your careers seperated by comma. ex)A company, B competition
-            textarea(name="career", id="career", placeholder="Add your Career")=user.career
-            label(for="introduction") Self introduction
-            textarea(name="introduction", id="introduction", placeholder="Self introduction", maxlength=200)=user.introduction
-            input(type="submit", value="Update Profile")
+                label(for="photo") Photo 
+            .name 
+                input(type="text", id="name",placeholder="Name", name="name", value=user.name)
+                label(for="name") Name
+            .email
+                input(type="email", id="email", placeholder="Email", name="email", value=user.email)
+                label(for="email") Email
+            .school
+                input(type="text", id="school",placeholder="School", name="school", value=user.school)
+                label(for="school") School
+            .blog 
+                input(type="text", id="blogUrl", placeholder="Blog url", name="blogUrl", value=user.blogUrl)
+                label(for="blogUrl") Blog Url
+            .tech 
+                textarea(name="tech", id="tech", placeholder="Add Tech you can use")=user.tech
+                label(for="tech") Enter your tech skills seperated by comma. ex)react,node
+            .career
+                textarea(name="career", id="career", placeholder="Add your Career")=user.career
+                label(for="career") Enter your careers seperated by comma. ex)A company, B competition
+            .intro
+                textarea(name="introduction", id="introduction", placeholder="Self introduction", maxlength=200)=user.introduction
+                label(for="introduction") Self introduction
+            .box 
+                input(type="submit", value="Update Profile")
