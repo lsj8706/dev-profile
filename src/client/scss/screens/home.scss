@@ -57,10 +57,13 @@
     font-size: 30px;
     font-weight: 700;
     display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-items: flex-end;
     justify-content: center;
     align-items: center;
     a {
-      color: $blue;
+      color: $lilac;
       &:not(:last-child) {
         margin-right: 50px;
       }
