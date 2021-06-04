@@ -21,6 +21,8 @@ KHU-Hub repo: [khuhub.khu.ac.kr/2018102216/dev-profile](https://khuhub.khu.ac.kr
 
 ## <br>
 
+### Developers
+
 ### test installation
 
 This is the usage just for the being.
@@ -51,7 +53,9 @@ npm run dev:assets
 [GitHub Contributuions API](https://api.github.com/graphql/)
 
 <br>
-\\<!--[GitHub Repositories API](https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2")-->
+\\<!--[GitHub Repositories API]
+
+### Libraries
 
 ### License
 

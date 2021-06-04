@@ -9,32 +9,63 @@
 
 h3 {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  margin-top: 50px;
+  margin: 50px 0px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-  font-size: 30px;
+  font-size: 27px;
+  color: rgb(15, 100, 142);
   opacity: 0.8;
 }
 
 a {
+  .login-github::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  .login-github:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .login-github::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0 0 0 0;
+    background: hsl(200 100% 80%);
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+
   .login-github {
-    display: flex;
-    justify-content: center;
-    border-radius: 25px;
-    align-items: center;
-    margin-top: 30px;
-    height: 80px;
-    background-color: rgb(93, 32, 167);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
-      0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11),
-      0 8px 16px rgba(0, 0, 0, 0.11);
-    font-family: "Raleway", sans-serif;
-    color: white;
-    font-size: 50px;
-    font-weight: 500;
-    font-family: "Roboto", sans-serif;
-    font-size: 25px;
+    position: relative;
+    font-size: 5rem;
+  }
+
+  html {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  body {
+    min-block-size: 100%;
+    min-inline-size: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: grid;
+    place-content: center;
+  }
+
+  @media (orientation: landscape) {
+    body {
+      grid-auto-flow: column;
+    }
   }
 }
