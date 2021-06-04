@@ -4,12 +4,13 @@ block content
     .user-quote
         h2=quote 
         h3=author
+
     hr
     .user-profile 
         .user-profile__column 
             img(src=`/${user.avatarUrl}`)
             .user-profile__link 
-                a(href=user.githubUrl target="_blank") Github
+                a(href=user.githubUrl target="_blank") Github 
                 a(href=`//${user.blogUrl}` target="_blank") Blog
         .user-profile__column
             .user-profile__info
