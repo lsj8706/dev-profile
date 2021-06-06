@@ -51,9 +51,9 @@ block content
             .user-status
                 .user-status__contributions
                     h3 YOU'VE MADE 
-                    span #{totalContributions} 
+                    span#jsTotalContributions=totalContributions
                     h3 CONTRIBUTIONS!
-        
+
                     img(src=`http://ghchart.rshah.org/${user.githubName}` alt="Name Your Github chart")
 
             
@@ -62,43 +62,11 @@ block content
             
             
             .user-repositories
-                h3 Your recent updated repositories
                 .user-repo
-                    a(href=firstRepoUrl)
-                        h3 REPO 1
-                        p=fitstRepoName
-                    br
-                    a(href=secondRepoUrl)
-                        h3 REPO 2
-                        p=secondRepoName
+                    h3 Your recent updated repositories:
 
 
-
-        
     
-    //- .user-status
-    //-     .user-status__contributions
-    //-         h3 YOU'VE MADE 
-    //-         span #{totalContributions} 
-    //-         h3 CONTRIBUTIONS!
-    
-    //-         img(src=`http://ghchart.rshah.org/${user.githubName}` alt="Name Your Github chart")
-
-        
-    //-     .user-status__character
-    //-         h3 YOUR STATUS:
-    
-
-    //- .user-repositories
-    //-     h3 Your recent updated repositories
-    //-     .user-repo
-    //-         a(href=firstRepoUrl)
-    //-             h3 REPO 1
-    //-             p=fitstRepoName
-    //-         br
-    //-         a(href=secondRepoUrl)
-    //-             h3 REPO 2
-    //-             p=secondRepoName
 
 block scripts 
     script(src="/static/js/githubInfo.js") 
