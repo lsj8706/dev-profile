@@ -44,7 +44,7 @@
   font-size: 25px;
   font-weight: bolder;
   margin: 5px;
-  color: $blue;
+  color: #392f76;
 }
 
 .boxEffect {
@@ -153,39 +153,66 @@
         margin: 5px;
       }
     }
+
+    .user-repositories {
+      margin-top: 30px;
+
+      h3 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        @extend .mainText;
+      }
+      .user-repo {
+        margin-top: 50px;
+        .repoName {
+          display: inline-flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          font-family: "Raleway", cursive;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 2px;
+          text-transform: uppercase;
+          color: #1e1e1ed9;
+          margin: 5px;
+          width: 150px;
+        }
+        .repoUrl {
+          display: inline-flex;
+          flex-direction: row;
+          font-family: "Roboto", sans-serif;
+          font-size: 20px;
+          font-weight: 400;
+          color: #6f6f6f;
+          margin: 10px;
+        }
+        .repoUrl:hover {
+          display: inline-flex;
+          flex-direction: row;
+          font-family: "Roboto", sans-serif;
+          font-size: 20px;
+          font-weight: 400;
+          text-decoration: underline;
+          color: #6868af;
+          margin: 10px;
+        }
+      }
+    }
+
     .user-status__character {
-      margin-top: 50px;
+      margin-top: 60px;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
       h3 {
         @extend .mainText;
       }
       img {
-        max-width: 130px;
+        max-width: 200px;
         height: auto;
         object-fit: cover;
         margin-top: px;
-      }
-    }
-  }
-}
-
-.user-repositories {
-  margin-top: 30px;
-  text-transform: uppercase;
-  h3 {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    @extend .mainText;
-  }
-  .user-repo {
-    a {
-      h3 {
-        text-transform: lowercase;
-        display: inline-flex;
-        font-family: "Raleway", sans-serif;
-        font-size: 15px;
-        font-weight: bolder;
-        margin: 5px;
-        color: rgb(66, 68, 79);
       }
     }
   }
