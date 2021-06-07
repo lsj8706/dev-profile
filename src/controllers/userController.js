@@ -13,18 +13,17 @@ const getQuote = async (req, res) => {
   return { quote, author };
 };
 
-
 export const handleHome = async (req, res) => {
   const quote = await getQuote();
   res.render("home", {
     pageTitle: "Home",
     quote: quote.quote,
-    author: quote.author
+    author: quote.author,
   });
 };
 
 export const getUserDetail = async (req, res) => {
-  try{
+  try {
     const id = req.params.id;
     const quote = await getQuote();
     const user = await User.findById(id);
@@ -41,12 +40,11 @@ export const getUserDetail = async (req, res) => {
       secondRepoUrl: repo.secondRepoUrl,
       totalContributions: totalCon,
     });
-  } catch(error){
+  } catch (error) {
     console.log(error);
     res.redirect("/");
   }
 };
-
 
 export const getEditProfile = async (req, res) => {
   const {
@@ -156,10 +154,11 @@ export const logout = (req, res) => {
   res.redirect("/");
 };
 
-const getRepos = async() =>{
-  const url = "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
-  const latelyRepos = await axios.get(url).then(function(response){
-      return response.data;
+const getRepos = async () => {
+  const url =
+    "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
+  const latelyRepos = await axios.get(url).then(function (response) {
+    return response.data;
   });
   const fitstRepoName = latelyRepos[0].name;
   const secondRepoName = latelyRepos[1].name;
@@ -174,16 +173,22 @@ const getRepos = async() =>{
   };
 };
 
-const getContributions = async(username) =>{
+const getContributions = async (username) => {
   const token = process.env.GH_SECRET_SH;
   const headers = {
-      'Authorization': `bearer ${token}`,
+    Authorization: `bearer ${token}`,
   };
   const body = {
-    "query": `query {user(login: "${username}") {contributionsCollection {contributionCalendar {totalContributions}}}}`
+    query: `query {user(login: "${username}") {contributionsCollection {contributionCalendar {totalContributions}}}}`,
   };
-  const response = await fetch('https://api.github.com/graphql', { method: "POST", body: JSON.stringify(body), headers: headers });
+  const response = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: headers,
+  });
   const totalContributions = await response.json();
-  const total = totalContributions.data.user.contributionsCollection.contributionCalendar.totalContributions;
+  const total =
+    totalContributions.data.user.contributionsCollection.contributionCalendar
+      .totalContributions;
   return total;
 };

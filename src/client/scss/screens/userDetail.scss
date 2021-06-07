@@ -1,39 +1,224 @@
 .user-quote {
-  margin-top: 20px;
   h2 {
     font-size: 30px;
     font-family: "Vollkorn", serif;
-    margin: 15px 0px;
+    margin-top: 40px;
   }
   h3 {
     display: flex;
-    margin-right: 100px;
     flex-direction: row-reverse;
+    margin-top: 20px;
+    margin-right: 80px;
     font-size: 20px;
-    opacity: 0.5;
     font-family: "Vollkorn", serif;
+    color: #74828e;
+    font-weight: lighter;
   }
 }
-label {
+
+.labelSetting {
+  width: 100px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
   font-family: "Raleway", sans-serif;
   font-size: 13px;
   font-weight: bold;
-  padding: 10px;
+  margin: 2px;
+  color: $blue;
 }
+.infoSetting {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 2px;
+  color: #1e1e1ed9;
+  margin: 10px;
+}
+.mainText {
+  display: inline-flex;
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+  margin: 5px;
+  color: #392f76;
+}
+
+.boxEffect {
+  z-index: -1;
+  content: "";
+  bottom: 15px;
+  right: 10px;
+  left: auto;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+}
+
+//#fff5f6
+//#f8f8ff
+//#f2f3f8;
+//lavender
+//#ecedfc
+//#e3edf7
+//#ddeeff
+//#fff6c3
+
 .user-profile {
+  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-right: 23px;
+  width: 600px;
+  padding: 10px;
+  padding-bottom: 50px;
+  background-color: #fff6c3;
+  @extend .boxEffect;
+
   .user-profile__column {
     img {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
+      margin: 5px;
     }
     .user-profile__link {
       display: flex;
       font-family: "Raleway", sans-serif;
-      flex-wrap: wrap;
       font-weight: bold;
-      width: 5px;
-      color: rgb(92, 92, 221);
+      font-size: 15px;
+      color: rgb(70, 70, 216);
+      margin: 5px;
+      padding: 2px;
+      a {
+        margin: 5px;
+        margin-right: 15px;
+      }
+    }
+    .user-profile__info {
+      h3 {
+        flex: 0 0 100px;
+        @extend .labelSetting;
+      }
+      h4 {
+        @extend .infoSetting;
+      }
+      .user-profile__career {
+        display: flex;
+      }
+      .user-profile__tech {
+        display: flex;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 2px;
+        color: rgba(0, 0, 0, 0.85);
+        margin: 10px;
+      }
     }
   }
+}
+
+.user-git {
+  margin-left: 20px;
+  .user-status {
+    .user-status__contributions {
+      margin-top: 40px;
+      h3 {
+        @extend .mainText;
+      }
+      span {
+        color: orange;
+        display: inline-flex;
+        font-family: "Raleway", sans-serif;
+        font-size: 40px;
+        font-weight: bolder;
+        margin: 5px;
+      }
+      img {
+        width: 600px;
+        height: auto;
+        object-fit: cover;
+        margin: 5px;
+      }
+    }
+
+    .user-repositories {
+      margin-top: 30px;
+
+      h3 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        @extend .mainText;
+      }
+      .user-repo {
+        margin-top: 50px;
+        .repoName {
+          display: inline-flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          font-family: "Raleway", cursive;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 2px;
+          text-transform: uppercase;
+          color: #1e1e1ed9;
+          margin: 5px;
+          width: 150px;
+        }
+        .repoUrl {
+          display: inline-flex;
+          flex-direction: row;
+          font-family: "Roboto", sans-serif;
+          font-size: 20px;
+          font-weight: 400;
+          color: #6f6f6f;
+          margin: 10px;
+        }
+        .repoUrl:hover {
+          display: inline-flex;
+          flex-direction: row;
+          font-family: "Roboto", sans-serif;
+          font-size: 20px;
+          font-weight: 400;
+          text-decoration: underline;
+          color: #6868af;
+          margin: 10px;
+        }
+      }
+    }
+
+    .user-status__character {
+      margin-top: 60px;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      h3 {
+        @extend .mainText;
+      }
+      img {
+        max-width: 200px;
+        height: auto;
+        object-fit: cover;
+        margin-top: px;
+      }
+    }
+  }
+}
+
+.pageLayout {
+  display: flex;
+  flex-direction: row;
 }
