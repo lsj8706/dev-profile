@@ -29,7 +29,7 @@ export const getUserDetail = async (req, res) => {
     const user = await User.findById(id);
     const totalCon = await getContributions(user.githubName);
     res.render("userDetail", {
-      pagetTitle: "User Detail",
+      pageTitle: "User Detail",
       quote: quote.quote,
       author: quote.author,
       user,
@@ -67,7 +67,7 @@ export const postEditProfile = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       id,
       {
-        avatarUrl: file ? file.path : req.session.passport.user.avatarUrl,
+        avatarUrl: file ? file.location : req.session.passport.user.avatarUrl,
         name,
         email,
         school,

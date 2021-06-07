@@ -3,7 +3,7 @@ extends layouts/main
 block content
     .form-container
         form(action="/users/edit-profile", method="POST", enctype="multipart/form-data")
-            img(src=`/${loggedUser.avatarUrl}`)
+            img(src=`${loggedUser.avatarUrl}`)
             .fileUpload 
                 input(type="file", id="photo", name="photo", accept="image/*")
                 label(for="photo") Photo 
