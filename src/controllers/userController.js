@@ -27,18 +27,13 @@ export const getUserDetail = async (req, res) => {
     const id = req.params.id;
     const quote = await getQuote();
     const user = await User.findById(id);
-    const repo = await getRepos();
     const totalCon = await getContributions(user.githubName);
     res.render("userDetail", {
       pagetTitle: "User Detail",
       quote: quote.quote,
       author: quote.author,
       user,
-      fitstRepoName: repo.fitstRepoName,
-      firstRepoUrl: repo.firstRepoUrl,
-      secondRepoName: repo.secondRepoName,
-      secondRepoUrl: repo.secondRepoUrl,
-      totalContributions: totalCon,
+      totalContributions: totalCon
     });
   } catch (error) {
     console.log(error);
@@ -87,7 +82,7 @@ export const postEditProfile = async (req, res) => {
     );
     req.session.passport.user = updatedUser;
     //console.log(updatedUser);
-    res.redirect("/users/edit-profile");
+    res.redirect(`/users/${id}`);
   } catch (error) {
     console.log(error);
     res.redirect("/");
@@ -135,7 +130,7 @@ export const githubLoginCallback = async (_, __, profile, done) => {
         avatarUrl,
         githubUrl,
         name,
-        email,
+        email
       });
       return done(null, newUser);
     }
@@ -152,25 +147,6 @@ export const postGithubLogin = (req, res) => {
 export const logout = (req, res) => {
   req.logout();
   res.redirect("/");
-};
-
-const getRepos = async () => {
-  const url =
-    "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
-  const latelyRepos = await axios.get(url).then(function (response) {
-    return response.data;
-  });
-  const fitstRepoName = latelyRepos[0].name;
-  const secondRepoName = latelyRepos[1].name;
-  const firstRepoUrl = latelyRepos[0].html_url;
-  const secondRepoUrl = latelyRepos[1].html_url;
-
-  return {
-    fitstRepoName,
-    firstRepoUrl,
-    secondRepoName,
-    secondRepoUrl,
-  };
 };
 
 const getContributions = async (username) => {
@@ -192,3 +168,21 @@ const getContributions = async (username) => {
       .totalContributions;
   return total;
 };
+
+export const getRepos = async(req,res) =>{
+  try{
+  const githubNickname = req.headers.nickname
+  const URL = `https://api.github.com/users/${githubNickname}/repos?sort=updated&per_page=2`;
+  const response = await fetch(URL,{
+    headers: {
+      authorization: `token ${process.env.GH_SECRET_SH}`
+    }
+  }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      return res.send(data);
+    });
+  }catch(error){
+    console.log(error);
+  }
+}

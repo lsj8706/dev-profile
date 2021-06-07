@@ -4,9 +4,9 @@
   flex-direction: column;
   padding: 30px;
   img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 176px;
+    height: 220px;
+    object-fit: contain;
   }
   .fileUpload {
     display: flex;

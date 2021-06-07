@@ -6,8 +6,7 @@ const totalContributionIndicator = document.getElementById(
 );
 const userCharacterBox = document.querySelector(".user-status__character");
 const userRepoBox = document.querySelector(".user-repo");
-const URL =
-  "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
+const githubNickname = document.getElementById("jsGithubNickname");
 
 const handleImage = () => {
   const total = totalContributionIndicator.innerText;
@@ -41,16 +40,16 @@ const handleRepo = (list) => {
   });
 };
 
-const getGithubRepo = () => {
-  const response = fetch(URL)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      const trendRepoList = data.slice(0, 2);
-      handleRepo(trendRepoList);
-    });
-};
+const getGithubRepo = () =>{
+  const nickname = githubNickname.innerText;
+  const userId = window.location.href.split("/users/")[1];
+  const response = fetch(`/users/${userId}/repo`,{headers:{nickname}}).then(function(reponse){
+    const data = reponse.json();
+    return data
+  }).then(function(data){
+    handleRepo(data);
+  })
+}
 
 const init = () => {
   handleImage();

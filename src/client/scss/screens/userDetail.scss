@@ -48,7 +48,6 @@
 }
 
 .boxEffect {
-  z-index: -1;
   content: "";
   bottom: 15px;
   right: 10px;
@@ -85,9 +84,9 @@
 
   .user-profile__column {
     img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
+      width: 176px;
+      height: 220px;
+      object-fit: contain;
       margin: 5px;
     }
     .user-profile__link {
@@ -116,6 +115,12 @@
       }
       .user-profile__tech {
         display: flex;
+      }
+      .user-profile__introduction {
+        width: 100%;
+        overflow: hidden;
+        word-wrap: break-word;
+        word-break: break-all;
       }
       ul {
         display: flex;
@@ -212,7 +217,7 @@
         max-width: 200px;
         height: auto;
         object-fit: cover;
-        margin-top: px;
+        margin-top: 20px;
       }
     }
   }
