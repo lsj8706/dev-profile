@@ -8,8 +8,6 @@ module.exports = {
     githubInfo: "./src/client/js/githubInfo.js",
     search: "./src/client/js/search.js",
   },
-  mode: "development",
-  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",

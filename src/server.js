@@ -14,7 +14,7 @@ const app = express();
 
 
 app.set("view engine","pug");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", process.cwd() + "/src/views");
 app.use(express.static(path.join(__dirname, "static")));
 app.use(morgan("dev"));
 app.use(express.json());
