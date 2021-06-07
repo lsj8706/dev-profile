@@ -2,7 +2,8 @@ const userContributionsBox = document.querySelector(".user-status__contributions
 const totalContributionIndicator = document.getElementById("jsTotalContributions");
 const userCharacterBox = document.querySelector(".user-status__character");
 const userRepoBox = document.querySelector(".user-repo");
-const URL = "https://api.github.com/users/lsj8706/repos?sort=updated&per_page=2";
+const githubName = document.getElementById("jsGithubname").innerText;
+const URL = `https://api.github.com/users/${githubName}/repos?sort=updated&per_page=2`;
 
 
 const handleImage = () =>{
