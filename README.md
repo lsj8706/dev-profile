@@ -71,6 +71,15 @@ npm run dev:assets
     
     5. Please check if Mongo Db is working well in fourth method of "Installation MongoDB".
 
+### How to contribution our project.
+    1. Please fork our repository.
+    2. Change your branch to 'developer'.
+    3. Send pull request.
+    
+### How to fill .env file.
+    1. If you clone our repository and downloads required modules, make new '.env' file.
+    2. Fill in the required values as shown below.
+    ![image](/uploads/cbdf2726a8b5c6326378cd5fa8295726/image.png)
     
 ### API reference
 
