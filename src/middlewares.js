@@ -9,6 +9,8 @@ const s3 = new aws.S3({
     }
 });
 
+const isHeroku = process.env.NODE_ENV === "production";
+
 const multerUploader = multerS3({
     s3: s3,
     bucket: "developer-profile-oss",
@@ -18,7 +20,7 @@ const multerUploader = multerS3({
 export const localsMiddleware = (req,res,next) => {
     res.locals.siteName = "Dev Profile";
     res.locals.loggedUser = req.user || null;
-
+    res.locals.isHeroku = isHeroku;
     next();
 };
 
@@ -43,5 +45,5 @@ export const uploadFiles = multer({
     limits: {
         fileSize: 3000000
     },
-    storage: multerUploader
+    storage: isHeroku? multerUploader : undefined,
 });
