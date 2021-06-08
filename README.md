@@ -21,6 +21,20 @@ KHU-Hub repo: [khuhub.khu.ac.kr/2018102216/dev-profile](https://khuhub.khu.ac.kr
 
 ## <br>
 
+### Home Page
+    1. you can join or login with github.
+    2. you can search.
+![image](/uploads/f33744dd78985b881bfeff6162af0919/image.png)
+
+### Myprofile Page
+    1. You can see your profile information, github contributions, repositories, status at a glance.
+![image](/uploads/63eae503a0eb49b22bbe545c3c0c859a/image.png)
+    
+
+### Editprofile Page
+    1. You can input or change your informations.
+![image](/uploads/55988a03a91f0dcd33656afe0ec04ff6/image.png)
+
 ### test installation
 
 This is the usage just for the being.
