@@ -6,48 +6,69 @@ block content
         h3=author
 
     hr
-    .user-profile 
-        .user-profile__column 
-            img(src=`/${user.avatarUrl}`)
-            .user-profile__link 
-                a(href=user.githubUrl target="_blank") Github 
-                a(href=`//${user.blogUrl}` target="_blank") Blog
-        .user-profile__column
-            .user-profile__info
-                .user-profile__name
-                    h3 NAME:  
-                    h4=user.name  
-                .user-profile__github              
-                    h3 GITHUB NICKNAME: 
-                    h4#jsGithubname=user.githubName  
-                .user-profile__email
-                    h3 EMAIL: 
-                    h4=user.email 
-                .user-profile__school      
-                    h3 SCHOOL:   
-                    h4=user.school
-                .user-profile__tech
-                    h3 TECH:
-                    ul
-                        each tech in user.tech 
-                            li=tech
-                .user-profile__career
-                    h3 CAREER:
-                    ul
-                        each career in user.career
-                            li=career
-                .user-profile__introduction            
-                    h3 SELF-INTRODUCTION:        
-                    h4=user.introduction
-    hr
-    .user-status
-        .user-status__contributions
-            span#jsTotalContributions=totalContributions
-            img(src=`http://ghchart.rshah.org/${user.githubName}` alt="Name Your Github chart")
-        .user-status__character
-            h3 Your step
-    .user-repositories
-        .user-repo
-            h3 Repositories
+    .pageLayout
+        .user-profile 
+            .user-profile__column 
+                img(src=`/${user.avatarUrl}`)
+                .user-profile__link 
+                    a(href=user.githubUrl target="_blank") GitHub 
+                        i.fab.fa-github                  
+                    a(href=`//${user.blogUrl}` target="_blank") Blog 
+                        i.fas.fa-link 
+            .user-profile__column
+                .user-profile__info
+                    .user-profile__name
+                        h3 NAME
+                        h4=user.name  
+                    .user-profile__github              
+                        h3 &nbsp; &nbsp; &nbsp;&nbsp;GITHUB 
+                            br
+                            |NICKNAME 
+                        h4#jsGithubNickname=user.githubName  
+                    .user-profile__email
+                        h3 EMAIL
+                        h4=user.email 
+                    .user-profile__school      
+                        h3 SCHOOL   
+                        h4=user.school
+                    .user-profile__tech
+                        h3 TECH
+                        ul
+                            each tech in user.tech 
+                                li=tech
+                    .user-profile__career
+                        h3 CAREER
+                        ul
+                            each career in user.career
+                                li.career_list=career
+                    .user-profile__introduction            
+                        h3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SELF
+                            br
+                            |INTRODUCTION    
+                        h4=user.introduction
+
+        .user-git 
+            .user-status
+                .user-status__contributions
+                    h3 YOU'VE MADE 
+                    span#jsTotalContributions=totalContributions
+                    h3 CONTRIBUTIONS!
+                    img(src=`http://ghchart.rshah.org/${user.githubName}` alt="Name Your Github chart")
+
+
+                .user-repositories
+                    .user-repo
+                        h3 Your recent updated repositories:
+
+
+                .user-status__character
+                    h3 YOUR STATUS
+            
+            
+    
+
+
+    
+
 block scripts 
     script(src="/static/js/githubInfo.js") 

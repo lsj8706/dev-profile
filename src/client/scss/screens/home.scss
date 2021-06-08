@@ -5,24 +5,124 @@
   align-items: center;
   .home-title {
     margin: 40px 0px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     h2 {
-      font-size: 20px;
+      font-size: 25px;
       font-family: "Roboto", sans-serif;
-      font-weight: 400;
+      font-weight: 700;
       text-transform: uppercase;
+      color: rgb(30, 30, 150);
       margin-bottom: 30px;
     }
-    h1 {
+    span {
       font-size: 50px;
       font-family: "Roboto", sans-serif;
       font-weight: 800;
+      width: 60%;
+      text-align: center;
       text-transform: uppercase;
+      background-image: linear-gradient(120deg, #acedff 0%, #ffaddd 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.3em;
+      background-position: 0 88%;
+      transition: background-size 200ms ease-in;
+      &:hover {
+        background-size: 100% 88%;
+      }
     }
   }
+
+  .home-link {
+    margin: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    a {
+      color: $lilac;
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+      &:hover {
+        color: rgb(106, 89, 233);
+      }
+    }
+  }
+
+  .home-search {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #fff;
+    border-radius: 500px;
+    padding: 10px 25px 10px 25px;
+
+    .home-search__form {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      background: #fff;
+      border-radius: 500px;
+      padding: 10px 25px 10px 25px;
+      border: 1px solid #ccc;
+
+      img {
+        height: 30px;
+        width: 30px;
+      }
+
+      input {
+        padding: 5px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 300px;
+        border-radius: 5px;
+        background: transparent;
+        border: 1px solid transparent;
+        outline: none;
+        font-size: 1.2rem;
+        overflow-x: scroll;
+      }
+      button {
+        border: none;
+        background: none;
+        padding: 0;
+        i {
+          background: transparent;
+          border: none;
+          i {
+            font-size: 1.5rem;
+            margin: 3px;
+          }
+        }
+        i:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .home-search__form:hover {
+      box-shadow: 0px 1px 4px -1px rgba(79, 78, 79, 1);
+    }
+  }
+
+  .boxShadow {
+    box-shadow: 0 13px 10px -5px rgba(50, 50, 93, 0.25),
+      0 8px 10px -8px rgba(0, 0, 0, 0.3), 0 -6px 10px -6px rgba(0, 0, 0, 0.025);
+  }
+
   .home-quote {
     width: 100%;
     display: flex;
@@ -30,9 +130,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+    background-color: #f8f9ff;
+    padding: 30px;
+    @extend .boxShadow;
+
+    border-top: 3pt double #7f8bd0;
     h2 {
       font-size: 40px;
       font-family: "Vollkorn", serif;
@@ -40,57 +142,49 @@
     }
     h3 {
       font-size: 25px;
-      opacity: 0.5;
+      color: rgb(112, 114, 120);
       font-family: "Vollkorn", serif;
-    }
-  }
-  .home-search {
-    display: flex;
-    padding: 40px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .home-link {
-    margin-top: 50px;
-    font-family: "Roboto", sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    a {
-      color: $blue;
-      &:not(:last-child) {
-        margin-right: 50px;
-      }
+      font-weight: lighter;
+      margin-bottom: 10px;
     }
   }
   .gotoTrend {
-    margin-top: 50px;
     display: flex;
-    width: 120%;
+    margin-top: 50px;
+    width: 100%;
+    padding: 40px;
     text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+    background-color: #fffdf1;
+    border-top: 3pt double #ffce72;
+
+    @extend .boxShadow;
     h2 {
       color: #fb8500;
-      font-size: 25px;
+      font-family: "Raleway", cursive;
+      font-size: 30px;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      border-bottom: 3pt double $star;
+      padding-bottom: 10px;
+      width: 60%;
+      i {
+        color: $star;
+      }
     }
     .gotoTrend-repos {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       a {
-        font-size: 18px;
+        font-size: 20px;
         margin: 10px 0px;
+        font-family: "Raleway", cursive;
       }
       .repoName {
         font-weight: 600;

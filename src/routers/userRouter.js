@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getEditProfile,
+  getRepos,
   getUserDetail,
   handleUsers,
   postEditProfile,
@@ -20,5 +21,6 @@ userRouter.post(
 );
 
 userRouter.get("/:id", getUserDetail);
+userRouter.get("/:id/repo", getRepos);
 
 export default userRouter;

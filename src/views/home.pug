@@ -4,22 +4,31 @@ block content
     .home
         .home-title 
             h2 "Develop your value" 
-            h1 Developer Profile
-        .home-quote
-            h2=quote 
-            h3=author
-        .home-search 
-            form.home-search__form
-                input(type="text" id="jsInput" placeholder="Google 검색")
+            span Developer Profile
+
         .home-link
             if !loggedUser
                 a(href="/join") Join
                 a(href="/login") Login
             else 
                 a(href=`/users/${loggedUser._id}`) My profile
+
+        .home-search 
+            form.home-search__form
+                a(href="https://google.com" target="_blank")
+                    img(src="https://user-images.githubusercontent.com/48612525/86507657-d54fbd80-bd8e-11ea-866b-ac26496481ae.png" alt="google icon")
+                input(type="text" id="jsInput" placeholder="Google 검색")
+                button 
+                    i.fa.fa-search(aria-hidden="true")
+
+        .home-quote
+            h2=quote 
+            h3=author
+            
             
         .gotoTrend#jsGotoTrend
-            h2 Today's Trending Repositories:
+            h2 Today's Trending Repositories  
+                i.fas.fa-link 
             .gotoTrend-repos#jsGotoTrendRepos
                 span#jsIndicator Waiting....
 block scripts 

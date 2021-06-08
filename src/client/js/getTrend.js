@@ -9,7 +9,7 @@ const handleRepo = (list) =>{
     list.forEach(element => {
         const anchor = document.createElement("a");
         anchor.href = element.url;
-        anchor.target = "_blank"
+        anchor.target = "_blank";
         anchor.innerHTML = `<span class="repoName">${element.name}</span> : ${element.description} - <span class="repoStar">${element.stars} stars</span>`
         trendRepoBox.appendChild(anchor);
     });
