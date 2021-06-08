@@ -7,7 +7,7 @@ passport.use(new GithubStrategy(
     {
     clientID: process.env.GH_ID,
     clientSecret: process.env.GH_SECRET,
-    callbackURL: `http://localhost:5500/auth/github/callback`
+    callbackURL: `https://dev-profile-2021.herokuapp.com/auth/github/callback`
     }, 
     githubLoginCallback
 )
