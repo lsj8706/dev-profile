@@ -43,31 +43,31 @@ npm run dev:assets
 <br>
 ### Installation MongoDB
     1. Access to the MongoDB homepage.
-    ![image](/uploads/3d5d283732343d4c5ff4b5c7bd16c78f/image.png)
+![homepage](https://oss-2020105657.s3.amazonaws.com/MongoDB+homepage.png)
     
     2. Select options and download MongoDB.
-    ![image](/uploads/46038b5c881bb18074dd8e732804f5d7/image.png)
+![image](/uploads/46038b5c881bb18074dd8e732804f5d7/image.png)
     
     3. If this screen appears when installing MongoDB, please select 'complete' and proceed.
-    ![image](/uploads/510d184825d6eaf04dcb2d254f03b918/image.png)
+![image](/uploads/510d184825d6eaf04dcb2d254f03b918/image.png)
     
     4. When you enter 'mongo' command in vsc terminal, it is installed well when the screen appears as below.
-    ![image](/uploads/202bf8555f6842938d15c6e3b0e789c1/image.png)
+![image](/uploads/202bf8555f6842938d15c6e3b0e789c1/image.png)
     
 ### To setting environment variable.
     ps. When entering 'mongo' command in vsc terminal, skip this part if it runs well.
     
     1. Find folder where mongoDB is installed, and make a copy of the folder's route.
-    ![image](/uploads/93b13c8df931ef11781d21ad574ee441/image.png)
+![image](/uploads/93b13c8df931ef11781d21ad574ee441/image.png)
     
     2. And you open the 'environment variable' page. If using window environment, you can use command (window + R) and input 'sysdm.cpl ,3'. And click 'environment variable'.
-    ![image](/uploads/64278904603d6b3cdb78a0689695344a/image.png)
+![image](/uploads/64278904603d6b3cdb78a0689695344a/image.png)
     
     3. You must find 'path' in 'system variable' categroy, not 'users variable'. If you find 'path' in 'system variable', then check 'path' and click 'Editing'.
-    ![image](/uploads/9077ec8854585640dfb526e45cbcb3fb/image.png)
+![image](/uploads/9077ec8854585640dfb526e45cbcb3fb/image.png)
     
     4. Create a new environmental variable path using the Mongo db address you copied earlier.
-    ![image](/uploads/0018e1de51ae1c10cc9a5d5bc01fcf9d/image.png)
+![image](/uploads/0018e1de51ae1c10cc9a5d5bc01fcf9d/image.png)
     
     5. Please check if Mongo Db is working well in fourth method of "Installation MongoDB".
 
@@ -79,7 +79,7 @@ npm run dev:assets
 ### How to fill .env file.
     1. If you clone our repository and downloads required modules, make new '.env' file.
     2. Fill in the required values as shown below.
-    ![image](/uploads/cbdf2726a8b5c6326378cd5fa8295726/image.png)
+![image](/uploads/cbdf2726a8b5c6326378cd5fa8295726/image.png)
     
 ### API reference
 
