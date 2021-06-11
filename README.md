@@ -56,9 +56,9 @@ KHU-Hub repo : [khuhub.khu.ac.kr/2018102216/dev-profile](https://khuhub.khu.ac.k
 
 ### ● Test installation
 
+<p>
 <details>
 <summary>Click to see full walkthrough!</summary>
-<div markdown="1">
 
 After cloning repository, type into terminal to automatically install modules and libraries.
 
@@ -166,8 +166,8 @@ npm run dev:assets
 
     install node js.
 
-</div>    
 </details>
+</p>
 
 ## <br>
 
