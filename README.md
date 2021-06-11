@@ -74,45 +74,6 @@ npm run dev:server
 npm run dev:assets
 ```
 
-## <br>
-
-<br>
-
-### ● Installation MongoDB
-
-    1. Access to the MongoDB homepage.
-
-![homepage](https://oss-2020105657.s3.amazonaws.com/MongoDB+homepage.png)
-
-    2. Select options and download MongoDB.
-
-![options](https://oss-2020105657.s3.amazonaws.com/MongoDB+install.png)
-
-    3. If this screen appears when installing MongoDB, please select 'complete' and proceed.
-
-![precaution](https://oss-2020105657.s3.amazonaws.com/MongoDB+precaution.png)
-
-    4. When you enter 'mongo' command in vsc terminal, it is installed well when the screen appears as below.
-
-![image](https://oss-2020105657.s3.amazonaws.com/MongoDB+installation+well.png)
-
-### ● To setting environment variable.
-
-```bash
-    -ps. When entering 'mongo' command in vsc terminal, skip this part if it runs well.
-```
-
-    1. Find folder where mongoDB is installed, and make a copy of the folder's route.
-
-![image](https://oss-2020105657.s3.amazonaws.com/MongoDB+path.png)
-
-    2. And you open the 'environment variable' page. If using window environment, you can use command (window + R) and input 'sysdm.cpl ,3'. And click 'environment variable'.
-
-![image](https://oss-2020105657.s3.amazonaws.com/environment+window.png)
-
-    3. You must find 'path' in 'system variable' categroy, not 'users variable'. If you find 'path' in 'system variable', then check 'path' and click 'Editing'.
-
-![image](https://oss-2020105657.s3.amazonaws.com/Find+path+in+system+variable.png)
 
 ## <br>
 
@@ -135,6 +96,9 @@ npm run dev:assets
     4. If you enter 'mongo' command in vsc terminal, it will be installed with the screen appearing as below.
 
 ![image](https://oss-2020105657.s3.amazonaws.com/MongoDB+installation+well.png)
+
+
+<br>
 
 ### ● Setting environment variables
 
@@ -159,6 +123,8 @@ npm run dev:assets
 ![image](https://oss-2020105657.s3.amazonaws.com/make+new+environment+path.png)
 
     5. Please check if Mongo Db is working well refering to the fourth method of "MongoDB Installation".
+
+<br>
 
 ### ● Nodejs Installation
 
